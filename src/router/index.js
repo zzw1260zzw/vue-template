@@ -6,30 +6,6 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
-/**
- * Note: sub-menu only appear when route children.length >= 1
- * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
- *
- * hidden: true                   if set true, item will not show in the sidebar(default is false)
- * alwaysShow: true               if set true, will always show the root menu
- *                                if not set alwaysShow, when item has more than one children route,
- *                                it will becomes nested mode, otherwise not show the root menu
- * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
- * name:'router-name'             the name is used by <keep-alive> (must set!!!)
- * meta : {
-    roles: ['admin','editor']    control the page roles (you can set multiple roles)
-    title: 'title'               the name show in sidebar and breadcrumb (recommend set)
-    icon: 'svg-name'             the icon show in the sidebar
-    breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)
-    activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
-  }
- */
-
-/**
- * constantRoutes
- * a base page that does not have permission requirements
- * all roles can be accessed
- */
 export const constantRoutes = [
   {
     path: '/login',
@@ -51,110 +27,86 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '工作台', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
+    path: '/userInfo',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        name: 'userInfo',
+        component: () => import('@/views/userinfo/index'),
+        meta: { title: '用户信息管理', icon: 'form' }
       }
     ]
   },
 
   {
-    path: '/nested',
+    path: '/seatInfo',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'index',
+        name: 'seatInfo',
+        component: () => import('@/views/seatinfo/index'),
+        meta: { title: '席位信息管理', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/idInfo',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'idInfo',
+        component: () => import('@/views/idinfo/index'),
+        meta: { title: '身份信息管理', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/plugInfo',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'plugInfo',
+        component: () => import('@/views/pluginfo/index'),
+        meta: { title: '插件信息管理', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/systemSet',
+    component: Layout,
+    redirect: '/example/table',
+    name: 'systemSet',
+    meta: { title: '平台系统设置', icon: 'example' },
+    children: [
+      {
+        path: 'loginManagement',
+        name: 'loginManagement',
+        component: () => import('@/views/system-set/login-management/index'),
+        meta: { title: '登陆管理', icon: 'table' }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
+        path: 'keysetManagement',
+        name: 'keysetManagement',
+        component: () => import('@/views/system-set/keyset-management/index'),
+        meta: { title: '快捷键设置管理', icon: 'table' }
+      },
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'comManagement',
+        name: 'cominManagement',
+        component: () => import('@/views/system-set/com-management/index'),
+        meta: { title: '组件管理', icon: 'table' }
       }
     ]
   },

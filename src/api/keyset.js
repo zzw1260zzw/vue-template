@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function fetchList(params) {
   return request({
-    url: '/vue-admin-template/login-management/list',
+    url: '/vue-element-admin/keyset/list',
     method: 'get',
     params
   })

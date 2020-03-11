@@ -23,6 +23,9 @@
   position: relative;
   margin: 0 auto;
 }
+.el-button {
+  padding: 12px 60px;
+}
 
 // refine element ui upload
 .upload-container {
@@ -47,3 +50,17 @@
 .el-range-separator {
   box-sizing: content-box;
 }
+
+// 表框颜色
+ .el-table td,
+ .el-table th.is-leaf,
+ .el-table--border,
+ .el-table--group {
+  border-color: #ccc;
+}
+ .el-table--border::after,
+ .el-table--group::after,
+ .el-table::before {
+  background-color: #ccc;
+}
+

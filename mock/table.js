@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
 const data = Mock.mock({
-  'items|30': [{
+  'items|4': [{
     id: '@id',
     title: '@sentence(10, 20)',
     'status|1': ['published', 'draft', 'deleted'],
@@ -13,7 +13,7 @@ const data = Mock.mock({
 
 export default [
   {
-    url: '/vue-admin-template/table/list',
+    url: '/vue-admin-template/login-management/list',
     type: 'get',
     response: config => {
       const items = data.items

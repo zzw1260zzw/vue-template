@@ -60,6 +60,30 @@ div:focus {
 }
 
 // main-container global css
-.app-container {
-  padding: 20px;
+.content-header{
+  padding:30px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
 }
+.content-table{
+  margin:20px;
+}
+.content-footer{
+  margin:20px;
+  // text-align: center;
+}
+.content-title{
+  background-color: #559fff;
+  height: 60px;
+  line-height: 60px;
+  color: #fff;
+  padding-left: 20px;
+}
+
+.app-container {
+  margin: 0 20px;
+  min-height: calc(100vh);
+  background-color: #fff;
+  overflow: hidden;
+}
+
